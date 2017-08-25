@@ -9,9 +9,9 @@ from plt_testing import *
 try:
     t = get_example_trace('anon-v5.pcap')
 except:
-    print "Error in get_example_trace()"
+    print("Error in get_example_trace()")
     # sys.exc_clear()  # Not really needed
-print "- - -"
+print("- - -")
 
 t = get_example_trace('anon-v4.pcap')
 
@@ -23,12 +23,12 @@ for pkt in t:
         continue
 
     print_ip(ip, 12)
-    print
+    print()
     if n == 20:
         break
 
-print "%5d packets accepted" % (t.pkt_accepts())
-print "%5d packets dropped" % (t.pkt_drops())
+print("%5d packets accepted" % (t.pkt_accepts()))
+print("%5d packets dropped" % (t.pkt_drops()))
 
 t.close()  # Don't do this inside the loop!
 

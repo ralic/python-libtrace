@@ -7,23 +7,23 @@ import glob, re, os
 def find_copyright(fn):
     #f = open(fn+".new", "r")
     f = open(fn, "r")
-    print fn
+    print(fn)
     for line in f:
         if line.find("yright") >= 0:
-            print "   %s" % line.strip()
+            print("   %s" % line.strip())
             f.close()
             return True
     f.close()
     return False
 
 def fix_file(fn, yyyy):
-    print fn
+    print(fn)
     f = open(fn, "r");  nf = open(fn+".new", "w")
     for line in f:
         if line.find("yright") >= 0:
             #la = line.split('2014')
             la = re.split("20\d\d", line)
-            print "--- %s" % la
+            print("--- %s" % la)
             if len(la) == 2:
                 nf.write(la[0] + yyyy + la[1])
             else:

@@ -14,29 +14,29 @@ def test_uri(uri):
     nip = n = 0
     for pkt in t:
         n += 1
-        print "n = %d" % n
+        print("n = %d" % n)
         try:
             ipf = natkit.IPflow(pkt)
         except:
-            print "probably not an IP packet"
+            print("probably not an IP packet")
             continue
 
         nip += 1
 
-        print "%5d: %d %3d  %5d %5d  %s  %s" % (n,  # v6
+        print("%5d: %d %3d  %5d %5d  %s  %s" % (n,  # v6
            ipf.version, ipf.proto, ipf.src_port, ipf.dst_port,
-           ipf.src_prefix, ipf.dst_prefix)
+           ipf.src_prefix, ipf.dst_prefix))
 
         fwd = ipf.fwd_key
-        print "fwd =",
+        print("fwd =", end=' ')
         for b in fwd:
-            print " %02x" % ord(b),
+            print(" %02x" % ord(b), end=' ')
 
         rev = ipf.rev_key
-        print "\nrev =",
+        print("\nrev =", end=' ')
         for b in rev:
-            print " %02x" % ord(b),
-        print
+            print(" %02x" % ord(b), end=' ')
+        print()
 
         if nip == 4:
             break

@@ -15,10 +15,10 @@ try:
     # Remember: on a live interface, must sudo to capture
     #           on a trace file, can't set promicuous
 except:
-    print "Failed to configure something!"
+    print("Failed to configure something!")
     exit()
 
-print "starting ..."
+print("starting ...")
 t.start()
 
 ntcp = nfp = 0;  offset = 12
@@ -28,7 +28,7 @@ for pkt in t:
     trans = pkt.transport
     if trans:
         udp = pkt.udp;  tcp = pkt.tcp
-        print "%3d udp=%s, tcp=%s" % (nfp, udp, tcp)
+        print("%3d udp=%s, tcp=%s" % (nfp, udp, tcp))
         if udp:  # We filtered on UDP first
             print_udp(udp, 12)
             print_data("UDP:", offset, udp.data, 64)

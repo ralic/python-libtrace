@@ -15,11 +15,11 @@ for pkt in t:
     if pkt.udp and (pkt.udp.src_port == 53 or pkt.udp.dst_port == 53):
         nfp += 1
 
-        print "%4d:" % (n),
+        print("%4d:" % (n), end=' ')
         print_udp(pkt.udp, offset)
-        print
+        print()
 
         if nfp == 4:
             break
 
-print "%d raw -> %d filtered packets" % (n, nfp)
+print("%d raw -> %d filtered packets" % (n, nfp))

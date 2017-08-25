@@ -35,9 +35,9 @@ for pkt in t:
 t.close()
 of.close_output()
 
-print "%d packets examined\n" % (n)
+print("%d packets examined\n" % (n))
 
-print "icmp6 types = ",
+print("icmp6 types = ", end=' ')
 for type in sorted(icmp_info):
-    print "%d: %d " % (type, icmp_info[type]),
-print
+    print("%d: %d " % (type, icmp_info[type]), end=' ')
+print()

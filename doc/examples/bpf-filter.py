@@ -22,11 +22,11 @@ for pkt in t:
     nfp += 1
 
     udp = pkt.udp
-    print "%4d:" % (nfp),
+    print("%4d:" % (nfp), end=' ')
     print_udp(pkt.udp, offset)
-    print
+    print()
 
     if nfp == 4:
         break
 
-print "%d filtered packets" % nfp
+print("%d filtered packets" % nfp)

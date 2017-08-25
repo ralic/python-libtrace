@@ -29,9 +29,9 @@ for pkt in t:
 
 t.close();  of.close_output()
 
-print "%d packets examined\n" % (n)
+print("%d packets examined\n" % (n))
 
-print icmp_array
+print(icmp_array)
 
 for j in range(0, 12):
-   print "%2d: %6d" % (j, icmp_array[j])
+   print("%2d: %6d" % (j, icmp_array[j]))

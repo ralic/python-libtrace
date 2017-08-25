@@ -15,9 +15,9 @@ for pkt in t:
     if not tcp:
         continue
 
-    print "%5d:" % (n),
+    print("%5d:" % (n), end=' ')
     print_tcp(tcp, 12)
-    print
+    print()
     if n == 20:
         break
 

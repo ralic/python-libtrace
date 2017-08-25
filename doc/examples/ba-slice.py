@@ -6,7 +6,7 @@ def pba(ba):
     for n,x in enumerate(ba):
         if n != 0:
             sys.stdout.write(" ")
-        print "%02x" % x,
+        print("%02x" % x, end=' ')
     sys.stdout.write(">\n")
 
 ba = bytearray( [1, 2, 3, 4])

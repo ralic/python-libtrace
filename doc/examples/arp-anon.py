@@ -16,15 +16,15 @@ in_fn = 'anon-v4.pcap'
 
 test_ipv4 = ipp.from_s('17.34.51.68')  # test prefix
 new_addr = test_ipv4.addr  # 4-byte bytearray
-print "test_ipv4 = %s" % test_ipv4
-print "new_addr = %02x %02x %02x %02x" % (
-    new_addr[0], new_addr[1], new_addr[2], new_addr[3])
+print("test_ipv4 = %s" % test_ipv4)
+print("new_addr = %02x %02x %02x %02x" % (
+    new_addr[0], new_addr[1], new_addr[2], new_addr[3]))
 
 t = get_example_trace(in_fn)
 
 ot = plt.output_trace('pcapfile:arp-changed.pcap')
 ot.start_output()
-print "files opened ..."
+print("files opened ...")
 
 n = nip = 0;  nudp = 0
 for pkt in t:
@@ -38,11 +38,11 @@ for pkt in t:
         hln = d[4]  # Length of h/w address
         pln = d[5]  # Length of protocol address
         opcode = d[6]*256 + d[7]
-        print "hrd=%d, pro=%04x, hln=%d, pln=%d, opcode=%04x" % (
-            hw_type, protocol_type, hln, pln, opcode)
+        print("hrd=%d, pro=%04x, hln=%d, pln=%d, opcode=%04x" % (
+            hw_type, protocol_type, hln, pln, opcode))
 
         sax = 8+hln;  tax = sax+pln+hln  # Change sender and
-        print "sax=%d, tax=%d" % (sax, tax)
+        print("sax=%d, tax=%d" % (sax, tax))
 
         # CAUTION: python will replace a slice by a longer on,
         #   thus adding elements into a (byte)array.

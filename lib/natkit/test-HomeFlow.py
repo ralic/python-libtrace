@@ -27,17 +27,17 @@ fh = natkit.FlowHome(UAv4, UAv6)  # List of 'home' prefixes'
 #                    (outward home_key has addresses and ports swapped)
 
 def print_flow(n, ipf):
-    print "%5d: %d %3d  %5d %5d  %s  %s" % (n,  # v6
+    print("%5d: %d %3d  %5d %5d  %s  %s" % (n,  # v6
         ipf.version, ipf.proto, ipf.src_port, ipf.dst_port,
-        ipf.src_prefix, ipf.dst_prefix)
+        ipf.src_prefix, ipf.dst_prefix))
 
     #key = ipf.fwd_key
     #for b in key:
     #    print " %02x" % ord(b),
     #print
 
-    print "          src_home=%s, dst_home=%s, is_inward=%s" % (
-        ipf.src_in_home, ipf.dst_in_home, ipf.is_inward)
+    print("          src_home=%s, dst_home=%s, is_inward=%s" % (
+        ipf.src_in_home, ipf.dst_in_home, ipf.is_inward))
             
 
 def test_uri(uri):
@@ -54,7 +54,7 @@ def test_uri(uri):
         try:
             ipf = fh.flow(pkt)
         except:
-            print "%4d: probably not an IP packet" % n
+            print("%4d: probably not an IP packet" % n)
             continue
 
         if not ipf.is_inward:
@@ -70,15 +70,15 @@ def test_uri(uri):
                 print_flow(n, ipf)
 
             fwd = ipf.fwd_key
-            print "fwd =",
+            print("fwd =", end=' ')
             for b in fwd:
-                print " %02x" % ord(b),
+                print(" %02x" % ord(b), end=' ')
 
             hk = ipf.home_key
-            print "\nhom =",
+            print("\nhom =", end=' ')
             for b in hk:
-                print " %02x" % ord(b),
-            print
+                print(" %02x" % ord(b), end=' ')
+            print()
 
         #if n == 480:
         #    break

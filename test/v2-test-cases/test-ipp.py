@@ -27,28 +27,28 @@ test_println("try to set length = 0", get_tag())
 try:
     ipp3.length = 0
 except:
-    test_println("  {0} raised: {1}\n".format(sys.exc_type, sys.exc_value), get_tag())
+    test_println("  {0} raised: {1}\n".format(sys.exc_info()[0], sys.exc_info()[1]), get_tag())
     sys.exc_clear()
 
 test_println("try to set IPv6 length = 129", get_tag())
 try:
     ipp3.length = 129
 except:
-    test_println( "  {0} raised: {1}\n".format(sys.exc_type, sys.exc_value), get_tag())
+    test_println( "  {0} raised: {1}\n".format(sys.exc_info()[0], sys.exc_info()[1]), get_tag())
     sys.exc_clear()
 
 test_println("try to set IPv6 length = '4'", get_tag())
 try:
     ipp3.length = '4'
 except:
-    test_println("  {0} raised: {1}\n".format(sys.exc_type, sys.exc_value), get_tag())
+    test_println("  {0} raised: {1}\n".format(sys.exc_info()[0], sys.exc_info()[1]), get_tag())
     sys.exc_clear()
 
 test_println("try to set version = 5", get_tag())
 try:
     ipp3.version = 5
 except:
-    test_println( "  {0} raised: {1}\n".format(sys.exc_type, sys.exc_value), get_tag())
+    test_println( "  {0} raised: {1}\n".format(sys.exc_info()[0], sys.exc_info()[1]), get_tag())
     sys.exc_clear()
 
 ippv4  = ipp.IPprefix(4, bytearray("5678"), 32)

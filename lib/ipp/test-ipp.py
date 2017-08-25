@@ -1,21 +1,21 @@
 import ipp, sys, re
 
 def test_string(name, val):
-    print "%s = %s" % (name, val)
+    print("%s = %s" % (name, val))
     try:
         prefix = ipp.from_s(val)
-        print "%s = %s\n" % (name, prefix)
+        print("%s = %s\n" % (name, prefix))
         ps = str(prefix)
         if ps.find("::") >= 0:
             #sl = re.findall("[^:]:[^:]", ps)
             sc = ps.replace("::", "!")
             if sc.count(":") == 5:
                 nps = sc.replace("!", ":0:");
-                print ">>> nps = %s\n" % nps
+                print(">>> nps = %s\n" % nps)
             
-    except Exception, err:
+    except Exception as err:
         #traceback.print_exc()
-        print "err = %s" % err
+        print("err = %s" % err)
 
 test_string("p61", "2001:df0:0:321:1:2:3:4/128")
 test_string("p62", "2001:df0:0:0:1:2:3:4/128")
@@ -35,12 +35,12 @@ test_string("p45", "130.216")
 test_string("p46", "130.216/24")
 
 p = ipp.from_s("130.216.0.0/24")
-print "\np = %s, type(q) = %s" % (p, type(p))
-print
+print("\np = %s, type(q) = %s" % (p, type(p)))
+print()
 
 ba = bytearray([130, 216, 0, 0])
 q = ipp.IPprefix(4, ba, 25)
 #q = ipp.IPprefix()
-print "q = %s, type(q) = %s" % (q, type(q))
+print("q = %s, type(q) = %s" % (q, type(q)))
 
 #HomeFlow.py and test-v6-tunnal.py now fail

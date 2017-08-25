@@ -21,9 +21,9 @@ while True:
     if not icmp:
         continue
 
-    print "%5d: " % (n),
+    print("%5d: " % (n), end=' ')
     print_icmp(icmp, offset)
-    print
+    print()
 
     nicmp += 1
     #if nicmp == 10:
@@ -31,4 +31,4 @@ while True:
 
 t.close
 
-print "%d packets examined\n" % (n)
+print("%d packets examined\n" % (n))

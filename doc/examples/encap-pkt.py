@@ -13,7 +13,7 @@ def compare_objects(a, b, msg):
    if a.data != b.data:  # Compare bytearrays
        print_data("a =", 5, a.data)
        print_data("b =", 5, b.data)
-       print ">>> %s <<<" % msg
+       print(">>> %s <<<" % msg)
        sys.exit()
 
 n = nip = 0;  offset = 12
@@ -22,13 +22,13 @@ for pkt in t:
     ip = pkt.ip
     if not ip:
         continue
-    print "%5d:" % (n),
+    print("%5d:" % (n), end=' ')
     print_ip(ip, offset)
     l3ip = plt.ip(pkt.layer3.data);
     compare_objects(ip, l3ip, "ip : layer3")
 
     tcp = pkt.tcp;  udp = pkt.udp;  icmp = pkt.icmp
-    print "      ",
+    print("      ", end=' ')
     if tcp:
         print_tcp(tcp, offset)
         ntcp = plt.tcp(ip)
@@ -43,8 +43,8 @@ for pkt in t:
         compare_objects(icmp, nicmp, "icmp : new icmp")
     else:
         margin = ' ' * offset
-        print "Unknown: proto=%d" % (ip.proto)
-    print
+        print("Unknown: proto=%d" % (ip.proto))
+    print()
 
     nip += 1
     if nip >= 15:

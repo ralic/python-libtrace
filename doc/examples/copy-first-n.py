@@ -14,12 +14,12 @@ in_uri = sys.argv[1]  # Program name is argv[0]
 out_uri = sys.argv[2]
 n_records = sys.argv[3]
 if not n_records or int(n_records) <= 0:
-    print "Number of records to copy not specified <<<"
+    print("Number of records to copy not specified <<<")
     exit()
 else:
     n_records = int(n_records)
-    print "copying first %d records from %s to %s ..." % (
-        n_records, in_uri, out_uri)
+    print("copying first %d records from %s to %s ..." % (
+        n_records, in_uri, out_uri))
 
 t = plt.trace(in_uri)
 t.start()

@@ -15,9 +15,9 @@ for pkt in t:
         continue
     n += 1  # Wireshark uses 1-org packet numbers
 
-    print "%5d: " % (n),
+    print("%5d: " % (n), end=' ')
     print_ip6(ip6, 12)
-    print
+    print()
     if n == 20:
         break
 

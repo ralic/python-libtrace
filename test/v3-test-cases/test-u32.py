@@ -9,7 +9,7 @@ import natkit as nk
 from plt_testing import *
 
 #ba = bytearray(b"\x10\x02\x20\x04\x30\x05\x40\x06")
-ba = bytearray.fromhex(u"1002 2004 3005 4006")
+ba = bytearray.fromhex("1002 2004 3005 4006")
 test_print('', get_tag())
 for b in ba: test_print("%02x " % b)
 test_println('')

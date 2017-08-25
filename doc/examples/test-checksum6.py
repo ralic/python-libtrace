@@ -17,49 +17,49 @@ for pkt in t:
     tcp = ip6.tcp
     if tcp:
         try:
-            print "%3d     tcp checksum=%04x, ok=%s" % (
-                n, tcp.checksum, tcp.checksum_ok())
+            print("%3d     tcp checksum=%04x, ok=%s" % (
+                n, tcp.checksum, tcp.checksum_ok()))
             if not tcp.checksum_ok():
                 tcp.set_checksum()
             else:
                 tcp.checksum = 0x1234
-            print "        tcp checksum=%04x, ok=%s" % (
-                tcp.checksum, tcp.checksum_ok())
-        except ValueError, e:
-            print "        .tcp. %s" % e
+            print("        tcp checksum=%04x, ok=%s" % (
+                tcp.checksum, tcp.checksum_ok()))
+        except ValueError as e:
+            print("        .tcp. %s" % e)
 
     udp = ip6.udp
     if udp:
         try:
-            print "%3d     udp checksum=%04x, ok=%s" % (
-                n, udp.checksum, udp.checksum_ok())
+            print("%3d     udp checksum=%04x, ok=%s" % (
+                n, udp.checksum, udp.checksum_ok()))
             if not udp.checksum_ok():
                 udp.set_checksum()
             else:
                 udp.checksum = 0x5678
-            print "        udp checksum=%04x, ok=%s" % (
-                udp.checksum, udp.checksum_ok())
-        except ValueError, e:
-            print "        .udp. %s" % e
+            print("        udp checksum=%04x, ok=%s" % (
+                udp.checksum, udp.checksum_ok()))
+        except ValueError as e:
+            print("        .udp. %s" % e)
 
     icmp6 = ip6.icmp6
     if icmp6:
         try:
-            print "%3d     icmp6 checksum=%04x, ok=%s" % (
-                n, icmp6.checksum, icmp6.checksum_ok())
+            print("%3d     icmp6 checksum=%04x, ok=%s" % (
+                n, icmp6.checksum, icmp6.checksum_ok()))
             if not icmp6.checksum_ok():
                 icmp6.set_checksum()
             else:
                 icmp6.checksum = 0x9abc
-            print "        icmp6 checksum=%04x, ok=%s" % (
-                icmp6.checksum, icmp6.checksum_ok())
-        except ValueError, e:
-            print "        .icmp6. %s" % e
+            print("        icmp6 checksum=%04x, ok=%s" % (
+                icmp6.checksum, icmp6.checksum_ok()))
+        except ValueError as e:
+            print("        .icmp6. %s" % e)
 
     #if n == 5:
     #    break
 
-print "%5d packets accepted" % (t.pkt_accepts())
-print "%5d packets dropped" % (t.pkt_drops())
+print("%5d packets accepted" % (t.pkt_accepts()))
+print("%5d packets dropped" % (t.pkt_drops()))
 
 t.close()  # Don't do this inside the loop!

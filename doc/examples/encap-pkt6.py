@@ -13,7 +13,7 @@ def compare_objects(a, b, msg):
        print_data("a =", 5, a.data)
        sys.exit()
        print_data("b =", 5, b.data)
-       print ">>> %s <<<"
+       print(">>> %s <<<")
        sys.exit()
 
 n = nip6 = 0;  offset = 12
@@ -22,7 +22,7 @@ for pkt in t:
     ip6 = pkt.ip6
     if not ip6:
         continue
-    print "%5d:" % (n),
+    print("%5d:" % (n), end=' ')
     nip6 += 1
     print_ip6(ip6, offset)
     l3ip6 = plt.ip6(pkt.layer3.data);
@@ -37,7 +37,7 @@ for pkt in t:
     elif udp:
         print_udp(udp, offset)
         nudp = plt.udp(ip6)
-        print ">>>tcp={0}, ntcp={1}" . format(udp, nudp)
+        print(">>>tcp={0}, ntcp={1}" . format(udp, nudp))
         compare_objects(udp, nudp, "udp : new udp")
     elif icmp6:
         print_icmp6(icmp6, offset)
@@ -45,7 +45,7 @@ for pkt in t:
         compare_objects(icmp6, nicmp6, "icmp6 : new icmp6")
     else:
         margin = ' ' * offset
-        print "Unknown: proto=%d" % (ip6.proto)
+        print("Unknown: proto=%d" % (ip6.proto))
 
     if nip6 == 15:
         break 

@@ -15,13 +15,13 @@ for pkt in t:
         continue
     n += 1
 
-    print "%4d:" % (n),
+    print("%4d:" % (n), end=' ')
     print_udp(udp, offset)
-    print
+    print()
 
     if n == 20:
         break
 
 t.close
 
-print "%d packets examined\n" % (n)
+print("%d packets examined\n" % (n))
